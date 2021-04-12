@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, status, views
-from .serializers import RegisterSerializer, EmailVerifaicationSerializer
+from .serializers import (RegisterSerializer, EmailVerifaicationSerializer, LoginSerializer)
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken    
 from .models import User
@@ -60,6 +60,7 @@ class VerifyEmail(views.APIView):
         in_=openapi.IN_QUERY,description='Description',
         type=openapi.TYPE_STRING
         )
+        
 
     @swagger_auto_schema(manual_parameters=[token_param_config])
     def get(self, request):
@@ -77,3 +78,17 @@ class VerifyEmail(views.APIView):
             return Response({'error': 'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
         except jwt.exceptions.DecodeError as identifier:
             return Response({'error': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class LoginAPIView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
