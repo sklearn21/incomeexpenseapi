@@ -1,3 +1,5 @@
+from incomeexpenseapi import secerets
+
 """
 Django settings for incomeexpenseapi project.
 
@@ -122,3 +124,16 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'authentication.User'
+
+REST_FRAMEWORK = {
+    'NON_FIELD_ERRORS_KEY': 'error',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAILPORT = 587
+EMAIL_HOST_USER = 'secret.email_id'
+EMAIL_HOST_PASSWORD = 'secret.email_password'

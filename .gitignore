@@ -1,3 +1,5 @@
+incomeexpenseapi/secerets.py
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,vscode,pycharm
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,vscode,pycharm
@@ -336,3 +338,4 @@ fabric.properties
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/python,django,vscode,pycharm
+
