@@ -1,4 +1,4 @@
-from incomeexpenseapi import secerets
+from incomeexpenseapi.secerets import Email
 
 """
 Django settings for incomeexpenseapi project.
@@ -135,5 +135,5 @@ REST_FRAMEWORK = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAILPORT = 587
-EMAIL_HOST_USER = 'secret.email_id'
-EMAIL_HOST_PASSWORD = 'secret.email_password'
+EMAIL_HOST_USER = Email.email_id
+EMAIL_HOST_PASSWORD = Email.email_password
