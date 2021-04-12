@@ -29,3 +29,11 @@ class RegisterSerializer(serializers.ModelSerializer):
         return super().validate(attrs)
         
 
+class EmailVerifaicationSerializer(serializers.ModelSerializer):
+    """Serializer for email verification with token."""
+    token = serializers.CharField(max_length=555)
+
+    class Meta:
+        model=User
+        fields=['token']
+        
