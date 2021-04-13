@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
+    'expenses',
     'authentication',
 ]
 
@@ -138,3 +139,14 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAILPORT = 587
 EMAIL_HOST_USER = Email.email_id
 EMAIL_HOST_PASSWORD = Email.email_password
+
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        }
+    }
+}
